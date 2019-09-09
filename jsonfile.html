@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>:: DEMO ::</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+         $.ajax({
+         	url : 'http://my-json-server.typicode.com/nitish173/rough-work/investment_plan',
+         	dataType:'json',
+         	type:'get',
+         	success:function(response){
+         		console.log(response);
+         		$.each(response, function(i, data){
+         			$('.box ul').append('<li class="list_'+i+'"><h3> '+ data.plan_name +' </h3><p>'+data.description+'</p>');
+         			$.each(data.benefits, function(j, list){
+         				//console.log(data.benefits);
+         			$('.list_'+i).append('<p>'+list+'</p>');
+
+         			});
+         			$('.list_'+i).append('<div class="img'+i+'">')
+         			$.each(data.funds, function(k, img){
+         				$('.img'+i).append('<p><img src ="'+img+'"/></p>');
+
+         			});
+         			
+         			$('.box ul').append("</li>");
+
+         		});
+         	}
+
+         });
+		});
+	</script>
+	<style type="text/css">
+		.mn{
+			width:1000px;
+			margin:0px auto;  
+		}
+		.wrp {
+			width:100%;
+			float:left;  
+		}
+		.box {
+			width:100%;
+			float:left;  
+		}
+		.box ul{
+			margin:0px 0px;
+			padding:0px 0px;
+			list-style:none;   
+		}
+		.box ul li{
+			margin:0px 0px;
+			padding:15px;
+			float:left;
+			border:solid 1px #ccc; 
+			width:30.1%;     
+		}
+
+	</style>
+</head>
+<body>
+	<div class="mn">
+	<div id="boxm">
+		<div class="box">
+			<ul>
+				
+			</ul>
+		</div>
+		</div>
+	</div>
+
+</body>
+</html>

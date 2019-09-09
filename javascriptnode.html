@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>:: DEMO ::</title>
+	<style type="text/css">
+		h3 {
+    visibility: hidden;
+    position: relative;
+}
+h3:after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "This text replaces the original.";
+}
+
+.cgh{
+	color:#000; 
+}
+input[type=checkbox]:checked  ~ .cgh {
+color:red; 
+	}
+
+	#ckt{
+		display:none; 
+	}
+	#ckt:target{
+		display:block; 
+	}
+	</style>
+
+
+</head>
+<body>
+<a href="#ckt">show</a>
+<div id="ckt">dasdasda</div>
+<div id="t_gh"></div>
+<input type="checkbox" name="">
+<h3 class="cgh">Old Text</h3>
+<script type="text/javascript">
+
+var ndiv = document.createElement('div');
+var classname = document.createAttribute('class');
+classname.value='form-group';
+ndiv.setAttributeNode(classname); 
+document.getElementById('t_gh').append(ndiv);
+  
+ 
+</script>
+</body>
+</html>
