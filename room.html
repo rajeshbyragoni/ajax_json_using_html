@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>:: javascript ::</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		$('#room').on('change', function(){
+			var result = $('#room option:selected');
+			var resulting ='';
+			var roomval = $('#room').val();
+			$('.append .ads').remove();
+			for (i = 1; i < roomval; i++) {
+				console.log(i);
+				$('.rooms_m').find('.ads').clone().appendTo('.append');
+			}
+        
+		});
+		});
+	</script>
+	<style type="text/css">
+		.col-md-12{
+			width:100%;
+			float: left; 
+		}
+		.col-md-2{
+			width:10%;
+			float: left; 
+			margin:0 10px 0px 0px; 
+		}
+		select{
+			width:100%;
+			padding:7px;  
+		}
+		.ads{
+			width:100%;
+			float: left;
+
+		}
+		.ads_m{
+			width:100%;
+			float: left; 
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+		<div class="col-md-12">
+			<div class="clickromm">
+				<p>1 Room 1 Guest </p>	
+			</div>
+		</div>
+		<div class="rooms_m">
+			<div class="col-md-12">
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="sel1">Rooms</label><br/>
+						<select class="form-control" id="room">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+					</div>
+				</div>
+				<div class="ads">
+
+					<div class="col-md-2"><br/>Room  </div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<label for="sel1">Adult</label><br/>
+							<select class="form-control" id="adult">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<label for="sel1">Child</label><br/>
+							<select class="form-control" id="child">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="append"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.clickromm').click(function(){
+				$('.rooms_m').toggle('slow');
+			});
+			$('#room').on('change', function(){
+				const result = $('#room option:selected');
+				const roomval = $('#room').val();
+				$('.rrrrr .ads').remove();
+				for (let i =1; i <roomval; i++) {
+					console.log(i);
+
+						$('.rrrrr').append('<div class="ads_m"><div class="ads"><div class="col-md-2"><select style="border:none;opacity:0;"></select></div><div class="col-md-2"><br/>Room '+ (i+1) +' </div><div class="col-md-2"><div class="form-group"><label for="sel1">Adult</label><br/><select class="form-control" id="adult"><option value="1">1</option><ption value="2">2</option><option value="3">3</option><option value="4">4</option></select></div></div><div class="col-md-2"><div class="form-group"><label for="sel1">Child</label><br/><select class="form-control" id="child"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div></div></div></div>');
+					
+				}
+			});
+
+
+
+
+		});
+	</script>
+	<style type="text/css">
+		.col-md-12{
+			width:100%;
+			float: left; 
+		}
+		.col-md-2{
+			width:10%;
+			float: left; 
+			margin:0 10px 0px 0px; 
+		}
+		select{
+			width:100%;
+			padding:7px;  
+		}
+		.ads{
+			width:100%;
+
+		}
+		.ads_m{
+			width:100%;
+			float: left; 
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="col-md-12">
+			<div class="clickromm">
+				<p>1 Room 1 Guest </p>	
+			</div>
+		</div>
+		<div class="rooms_m">
+			<div class="col-md-12">
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="sel1">Rooms</label><br/>
+						<select class="form-control" id="room">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+					</div>
+				</div>
+				<div class="ads">
+
+					<div class="col-md-2"><br/>Room 1 </div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<label for="sel1">Adult</label><br/>
+							<select class="form-control" id="adult">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<label for="sel1">Child</label><br/>
+							<select class="form-control" id="child">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="rrrrr"></div>
+
+</body>
+</html> -->
