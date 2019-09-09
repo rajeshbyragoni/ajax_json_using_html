@@ -1,0 +1,814 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>:: DEMO ::</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('button').click(function(){
+           //alert();
+          var result = $('input[type="radio"]:checked');
+          //console.log(result);
+          if (result.length > 0) {
+            $('#results').text(result.val() + "is checked");
+          }
+          else{
+            $('#results').text('no record checked');
+          }
+
+       });
+    });
+  </script>
+</head>
+<body>
+
+  <input type="radio" value="BAngalore" name="1"> BAngalore 
+  <input type="radio" value="hyd" name="1"> hyd 
+  <input type="radio" value="pune" name="1"> pune 
+  <input type="radio" value="mumbai" name="1"> mumbai 
+  <input type="radio" value="chennai" name="1"> chennai <br/><br/>
+    
+  
+  <button id="divsubmit">submit</button>
+    <div id="results"></div>
+
+</body>
+</html> -->
+<!--
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>:: DEMO ::</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+     $('input').click(function(event) {
+       var result = $('input[type="radio"]:checked');
+       $('#results').text(result.val());
+     });
+    });
+  </script>
+</head>
+<body>
+
+  <input type="radio" value="BAngalore" name="1"> BAngalore 
+  <input type="radio" value="hyd" name="1"> hyd 
+  <input type="radio" value="pune" name="1"> pune 
+  <input type="radio" value="mumbai" name="1"> mumbai 
+  <input type="radio" value="chennai" name="1"> chennai <br/><br/>
+    
+  
+  <button id="divsubmit">submit</button>
+    <div id="results"></div>
+
+</body>
+</html> -->
+
+
+<!--  <!DOCTYPE html>
+<html>
+<head>
+  <title>:: DEMO ::</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+         $('#submit').click(function(){
+         var result = $('input[type="checkbox"]:checked');
+         //var resultstring = '';
+         if (result.length > 0) {
+          var resultstring = result.length + "checkboxes checked <br/>";
+          result.each(function(){
+            resultstring += $(this).val() + "<br/>";
+          });
+          $('#results').html(resultstring);
+         }else{
+          $('#results').html("no records found");
+         }
+         });
+    });
+  </script>
+  
+</head>
+<body>
+   Skills :
+  <input type="checkbox" value="html" name="skills"> html
+  <input type="checkbox" value="css" name="skills"> css
+  <input type="checkbox" value="javascript" name="skills"> javascript
+  <input type="checkbox" value="jquery" name="skills"> jquery
+  <input type="checkbox" value="angular" name="skills"> angular <br/><br/>
+  <button id="submit">submit</button>
+  <div id="results"></div>
+
+</body>
+</html>  -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>:: DEMO ::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#skills').click(function () {
+                //alert('dsds');
+                getCheckedCheckBoxs('skills');
+            });
+            $('#cities').click(function () {
+                getCheckedCheckBoxs('cities');
+            });
+            
+            var getCheckedCheckBoxs = function(groupName)
+            {
+                var result = $('input[name="' + groupName + '"]:checked');
+                //console.log(result);
+                if (result.length > 0) {
+                    var resultstring = result.length + "checkboxes checked <br/>";
+                    result.each(function () {
+                        resultstring += $(this).val() + "<br/>";
+                    });
+                    $('#div' + groupName).html(resultstring);
+                } else {
+                    $('#div' + groupName).html("no records found");
+                }
+            }
+        });
+    </script>
+
+</head>
+<body>
+
+Skills :
+<input type="checkbox" value="html" name="skills"> html
+<input type="checkbox" value="css" name="skills"> css
+<input type="checkbox" value="javascript" name="skills"> javascript
+<input type="checkbox" value="jquery" name="skills"> jquery
+<input type="checkbox" value="angular" name="skills"> angular <br/><br/>
+
+cities :
+<input type="checkbox" value="bangalore" name="cities"> bangalore
+<input type="checkbox" value="hyd" name="cities"> hyd
+<input type="checkbox" value="mumbai" name="cities"> mumbai
+<input type="checkbox" value="chennai" name="cities"> chennai
+<input type="checkbox" value="agara" name="cities"> agara <br/><br/>
+
+<button id="skills">skills</button>
+<button id="cities">cities</button>
+
+<div id="divskills"></div>
+<div id="divcities"></div>
+
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>:: DEMO ::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#selectcntry').change(function(){
+            var selectOptions =  $('#selectcntry option:selected');
+            if (selectOptions.length > 0) {    
+               var resultString = '';
+               selectOptions.each(function(){
+                   //console.log(selectString);
+               resultString += 'value =' + $(this).val() + ', text =' + $(this).text();
+               });
+              $('#ssssss').html(resultString);
+            }
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<select id="selectcntry" multiple="multiple">
+    <option value="AF">Afghanistan</option>
+    <option value="AX">Åland Islands</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+</select>
+
+
+<div id="ssssss"></div>
+
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>:: DEMO ::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+         $('#selectcntry').change(function(){
+           var reslt = $('#selectcntry option:selected');
+           if (reslt.length>0) {
+             var reslutStng ='';
+             reslt.each(function(){
+            reslutStng += $(this).val();
+             });
+              $('#results').html(reslutStng);
+           }
+          
+         })
+        });
+    </script>
+
+</head>
+<body>
+
+<select id="selectcntry" multiple="multiple">
+    <option value="raj">raj</option>
+    <option value="ram">ram</option>
+    <option value="rav">rav</option>
+    <option value="ddd">ddd</option>
+   
+</select>
+
+
+<div id="results"></div>
+
+</body>
+</html> -->
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <title>:: DEMO ::</title>
+  <script type="text/javascript">
+   function setImage(select){
+     var image = document.getElementsByName('image-swap')[0];
+     if (image=='') {
+      image.style.display="none";
+     }else{
+      image.style.display="block";
+     image.src = select.options[select.selectedIndex].value;
+   }
+ }
+</script>
+
+
+</head>
+<body>
+
+  <select id="selectcntry" onchange="setImage(this);">
+    <option value="">select</option>
+    <option value="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd3.png">raj</option>
+    <option value="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd2.png">ram</option>
+    <option value="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd3.png">rav</option>
+    
+    
+  </select>
+
+
+  <img src="" name="image-swap">
+  <p id="slt"></p>
+
+</body>
+</html> 
+-->
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<form name="thisForm">
+I like to program in:<p>
+<input type="checkbox" value="PHP" CHECKED>PHP<p>
+<input type="checkbox" value="Perl">Perl<p>
+<input type="checkbox" value="Ruby">Ruby<p>
+<input type="checkbox" value="ASP">ASP<p>
+
+<input type="button" value="Submit" onclick="loopForm(document.thisForm);"> 
+</form>
+<p>
+<div id="cbResults"></div>
+
+<script language="JavaScript">  
+function loopForm(form) {
+    var cbResults = 'Checkboxes: ';
+    var radioResults = 'Radio buttons: ';
+    for (var i = 0; i < form.elements.length; i++ ) {
+        if (form.elements[i].type == 'checkbox') {
+            if (form.elements[i].checked == true) {
+                cbResults += form.elements[i].value + ' ';
+            }
+        }
+        if (form.elements[i].type == 'radio') {
+            if (form.elements[i].checked == true) {
+                radioResults += form.elements[i].value + ' ';
+            }
+        }
+    }
+    document.getElementById("cbResults").innerHTML = cbResults;
+    }
+</script>
+
+</body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>:: DEMO ::</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+ <script type="text/javascript">
+  $(document).ready(function(){
+  $('#selectcntry').change(function(){
+     $('img[name="image-swap"]').attr('src', $(this).val());
+  });
+  });
+ </script>
+
+</head>
+<body>
+
+<select id="selectcntry">
+    <option value="select">select</option>
+    <option value="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd2.png">ram</option>
+    <option value="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd3.png">rav</option>
+    
+   
+</select>
+
+
+<img src="" name="image-swap">
+<p id="txt"></p>
+
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>:: DEMO ::</title>
+  
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+
+  <script type="text/javascript">
+   $(document).ready(function(){
+    $('#imgid img').on({
+       click: function(){
+         var ImageUrl = $(this).attr('src');
+         $('#me').attr('src', ImageUrl);
+       }
+    });
+   });
+ </script>
+<style type="text/css">
+  #mn{
+    width:500px;
+    float: left; 
+  }
+</style>
+
+</head>
+<body>
+<div class="mn">
+<div id="imgbig">
+  <img id="me" src="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd4.png" style="width:460px; height:350px">
+</div>
+
+<div id="imgid">
+<img src="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd4.png" style="width:150px;height:150px;" class="image-swap">
+<img src="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd2.png" style="width:150px;height:150px;" class="image-swap">
+<img src="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd3.png" style="width:150px;height:150px;" class="image-swap">
+</div>
+</div>
+</body>
+</html>  -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>:: DEMO ::</title>
+  
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+
+  <script type="text/javascript">
+   $(document).ready(function(){
+    $(this).on('contextmenu', function(e){
+     e.preventDefault();
+     $('#result').append('right click disabled')
+    });
+   });
+ </script>
+<style type="text/css">
+  #mn{
+    width:500px;
+    float: left; 
+  }
+</style>
+
+</head>
+<body>
+<div class="mn">
+<div id="imgbig">
+  <img id="me" src="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd4.png" style="width:460px; height:350px">
+</div>
+
+<div id="imgid">
+<img src="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd4.png" style="width:150px;height:150px;" class="image-swap">
+<img src="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd2.png" style="width:150px;height:150px;" class="image-swap">
+<img src="http://192.168.1.12/travel2plan/assets/travel_theme/img/sd3.png" style="width:150px;height:150px;" class="image-swap">
+</div>
+<div id="result"></div>
+</div>
+</body>
+</html>  -->
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>:: DEMO ::</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+
+  <script type="text/javascript">
+   $(document).ready(function(){
+   $(".input-group-addon").click(function() {
+    if($("#password").attr("type") == "password"){
+      $("#password").attr("type", "text");
+
+   } else {
+      $("#password").attr("type", "password");
+    }
+    
+   });
+   });
+
+
+ </script>
+<style type="text/css">
+  .mn{
+    width:500px;
+    float: left; 
+  }
+</style>
+
+</head>
+<body>
+<div class="mn">
+<div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    <input id="password" type="password" class="form-control" name="password" placeholder="password">
+  </div>
+</div>
+</body>
+</html> 
+-->
+
+<!-- <script>
+
+
+function test() {
+ // var outString = "";
+    var cboxes = document.getElementsByName('mailId[]');
+    var len = cboxes.length;
+    for (var i=0; i<len; i++) {
+      alert(i + (cboxes[i].checked?' checked ':' unchecked ') + cboxes[i].value);
+        
+    }
+   
+}
+
+</script>
+<input class="messageCheckbox" type="checkbox" value="rajesh" name="mailId[]" onclick="test(this);">
+<input class="messageCheckbox" type="checkbox" value="ram" name="mailId[]" onclick="test(this);">
+-->
+
+
+ <!-- <script>
+ function WriteToFile() {
+    var out='';
+    var checks= document.getElementsByTagName('input');
+    for (var i =0; i < checks.length;  i++) {
+     if (checks[i].checked) {
+       out+=checks[i].value;
+     }
+    }
+    document.getElementById("sp1").innerHTML = out;
+  }
+
+/*function WriteToFile(fm) {
+var outString = "";
+var checks = fm.getElementsByTagName("input");
+for (var i=0; i < checks.length; ++i) {
+  if (checks[i].type == "checkbox" && checks[i].checked){
+   outString += checks[i].value + "<br/>";
+  }
+  }
+document.getElementById("sp1").innerHTML = outString;
+}*/
+
+
+</script>
+
+<form id="bx" name="bx">
+<input value="Html" type="checkbox" name="BasicCheckbox1" onClick="WriteToFile()"> Html
+    <input value="Css" type="checkbox" name="BasicCheckbox2" onClick="WriteToFile()"> Css
+    <input value="Javascript" type="checkbox" name="BasicCheckbox3" onClick="WriteToFile()"> Javascript
+    <input value="js" type="checkbox" name="BasicCheckbox4" onClick="WriteToFile()"> js
+    <br/>
+<span id="sp1"></span>
+<br>
+ <INPUT TYPE=BUTTON VALUE="Generate Text File" onClick="WriteToFile(this.form)">
+</form>  -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>:: DEMO ::</title>
+  
+ 
+  <script type="text/javascript">
+    function check(){
+    var output ='';
+   var  checks = document.getElementsByTagName('input');
+   for (var i =0; i < checks.length ;  i++) {
+    if (checks[i].checked) {
+      output+=checks[i].value;
+    }
+    document.getElementById('result').innerHTML=output;
+     
+   }
+ }
+ </script>
+<style type="text/css">
+  #mn{
+    width:500px;
+    float: left; 
+  }
+</style>
+
+</head>
+<body>
+<div class="mn">
+<input type="checkbox" value="html" onclick=" check()"> Html
+<input type="checkbox" value="css" onclick=" check()"> css
+<input type="checkbox" value="javascript" onclick=" check()"> javascript
+<input type="checkbox" value="js" onclick=" check()"> js
+
+
+<div id="result"></div>
+</div>
+</body>
+</html>  -->
+
+ <!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>:: DEMO ::</title>
+  
+ 
+  <script type="text/javascript">
+    function check(){
+      var output ='';
+      var checks= document.getElementsByTagName('input');
+      for (var i =0;  i < checks.length; i++) {
+        if (checks[i].checked) {
+          output+=checks[i].value + " ";
+        }
+        document.getElementById('result').innerHTML=output;
+      }
+
+
+    }
+
+ </script>
+<style type="text/css">
+  #mn{
+    width:500px;
+    float: left; 
+  }
+</style>
+
+</head>
+<body>
+<div class="mn">
+<input type="checkbox" value="html" onclick=" check()"> Html
+<input type="checkbox" value="css" onclick=" check()"> css
+<input type="checkbox" value="javascript" onclick=" check()"> javascript
+<input type="checkbox" value="js" onclick=" check()"> js
+<br/><br/>
+<input type="checkbox" value="html" onclick=" check()"> hyd
+<input type="checkbox" value="css" onclick=" check()"> css
+<input type="checkbox" value="javascript" onclick=" check()"> javascript
+<input type="checkbox" value="js" onclick=" check()"> js
+
+
+<div id="result"></div>
+</div>
+</body>
+</html>
+-->
+
+ <!--<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>Addtion, Substraction, Divide &amp; Multiplication using javaScript!</title>
+  <script>
+    function Calc(){
+      var val1 = document.getElementById("val1").value;
+      var val2 = document.getElementById("val2").value;
+      var opt = document.getElementById("opt").value;
+      
+      var ans = eval(val1 + opt + val2);
+      document.getElementById("ans").value = ans;
+    }
+  </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h3>Addition, Subtraction, Multiplication &amp; Division using JavaScript!</h3>
+        <hr />
+        <div class="col-lg-1">
+          <label for="desc">Value 1:</label> 
+        </div>
+        <div class="col-lg-1">
+          <input type="number" class="form-control" id="val1" value="5" required>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-1">
+          <label for="desc">Value 2:</label> 
+        </div>
+        <div class="col-lg-1">
+        <input type="number" class="form-control" id="val2" value="2" required>
+        </div>
+        <div class="col-lg-1">
+          <select id="opt" class="form-control">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+          </select>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-lg-1">
+          <label for="desc">Answer:</label> 
+        </div>
+        <div class="col-lg-1">
+          <input type="text" class="form-control" id="ans" readonly>
+        </div>
+        <div class="col-lg-1">
+          <button type="submit" name="submit" class="btn btn-success" onClick="Calc()">Submit</button>
+        </div>
+ 
+      </div>
+    </div>
+  </body>
+  </html>-->
+
+
+<!--<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title></title>
+  <style>
+    label{
+     display: block;
+    }
+    div{
+      width:500px;
+      display:block;  
+    }
+  </style>
+  <script>
+    function
+   
+  </script>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+    <div> <label>Category :</label> 
+
+      <select>
+        <option>------------ Select -----------</option>
+      <option value="Tv">Tv</option>
+      <option value="Mobile">Mobile</option>
+      <option value="Lop">Lop</option>
+    </select></div>
+    <div><br/>
+     <label>Product Name :</label> <input type="text" name=""> 
+    </div>
+     <div>
+     <label>quantity :</label> <input type="text" name=""> 
+    </div>
+    <div>
+     <label>Price : </label> <input type="text" name=""> 
+    </div>
+    <div><br/>
+    <button>Submit</button>
+  </form>
+    </div>
+    <br/>
+    <br/>
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="1">
+      <tr>
+       <th>Category </th> 
+       <th>Product Name </th> 
+       <th>quantity </th> 
+       <th>Price </th> 
+       <th>Total</th>
+      </tr>
+      <tr>
+       <td> </td> 
+       <td> </td> 
+       <td></td> 
+       <td> </td> 
+       <td> </td> 
+      </tr>
+    </table>
+    
+    </div>
+  </body>
+  </html>-->
+ <!--  <!DOCTYPE html>
+  <html>
+  <body>
+    <select id="slt" onchange="myFunction()">
+      <option value="html">html</option>
+      <option value="css">css</option>
+      <option value="java">java</option>
+    </select>
+
+    <div id="demo">lllll</div>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("slt").value;
+  // var strUser = select.options[select.selectedIndex].value;
+
+  //console.log(xlllll);
+   // document.getElementById("demo").innerHTML = xlllll;
+
+   // var para = document.createElement("P");
+   // var t = document.createTextNode(x);
+   // para.appendChild(t)
+   document.getElementById("demo").appendChild(para)
+ }
+</script>
+
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<form>
+  Select your favorite fruit:
+  <select id="mySelect" onchange="myFunction()">
+    <option value="apple">Apple</option>
+    <option value="orange">Orange</option>
+    <option value="pineapple">Pineapple</option>
+    <option value="banana">Banana</option>
+  </select>
+</form>
+
+<p>Click the button to return the value of the selected fruit.</p>
+
+<button type="button" onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("mySelect").value;
+  console.log(x);
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+</body>
+</html>
+
+ -->

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>:: DEMO ::</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var today = new Date();
+		var fulldate = today.getDate();
+		var daydate = today.getDate();
+		var month = today.getMonth()+1;
+		var year = today.getFullYear();
+		var date = daydate + "/" + month + "/" + year ;
+
+		var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+		var day = days[today.getDay()];
+		var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		var month = months[today.getMonth()];
+
+		var hour = today.getHours();
+		var minute = today.getMinutes();
+		var second = today.getSeconds();
+		var time =  hour + ":" + minute + ":" + second ;
+		
+		
+
+		var time24 = time;
+		var tmpArr = time24.split(':'), time12;
+		if(+tmpArr[0] == 12) {
+			time12 = tmpArr[0] + ':' + tmpArr[1] + ' pm';
+		} else {
+			if(+tmpArr[0] == 00) {
+				time12 = '12:' + tmpArr[1] + ' am';
+			} else {
+				if(+tmpArr[0] > 12) {
+					time12 = (+tmpArr[0]-12) + ':' + tmpArr[1] + ' pm';
+					alert('good evening');
+				} else {
+					time12 = (+tmpArr[0]) + ':' + tmpArr[1] + ' am';
+				}
+			}
+
+		}
+		
+		
+
+
+		$(document).ready(function(){
+			$('#date').text(date);
+			$('#day').text(day);
+			$('#month').text(month);
+			$('#time').text(time12);
+
+
+			$.ajax({
+
+				url : 'http://ip-api.com/json',
+				type : 'GET',
+				dataType : 'json',
+				success :function(response){
+					$('#cnty').text(response.country);
+					$('#city').text(response.city);
+               	//console.log(response);
+
+               }
+
+           });
+		});
+	</script>
+	<body>
+
+		<table border="1">
+			<tr>
+				<th>date</th>	
+				<th>Day</th>	
+				<th>Month</th>	
+				<th>Country</th>
+				<th>location</th>	
+				<th>time</th>	
+			</tr>
+			<tr>
+				<td><span id="date"></span></td>	
+				<td><span id="day"></span></td>	
+				<td><span id="month"></span></td>	
+				<td><span id="cnty"></span></td>	
+				<td><span id="city"></span></td>	
+				<td><span id="time"></span></td>
+			</tr>
+		</table>
+
+
+
+	</body>
+	</html>
+
+
+

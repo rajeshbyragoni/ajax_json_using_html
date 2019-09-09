@@ -1,0 +1,134 @@
+	<html>
+	<style>
+		body{
+			font-family: arial;
+		}
+		.mn{
+			width:1000px;
+			margin:0 auto;  
+		}	
+		.cntr{
+			width: 100%;
+			float: left;
+			border:solid 1px #ccc; 
+			padding:20px; 
+		}
+		.box{
+			width:250px;
+			float: left;
+			box-shadow:0 0 5px #ccc; 
+			padding:20px;
+			margin: 0 20px 20px 22px;
+			height: 320px;
+		}
+		.box h3{
+			font-size:18px; 
+		}
+		.box h3 span{
+			background:#fffcd7;
+			padding:7px; 
+			font-size:13px; 
+			float: right;
+		}
+		.box h4{
+			padding:7px 0px;
+			font-size:16px; 
+			margin: 0px;
+			color: #666;
+
+		}
+
+		.box p{color:#333;margin-top: 10px;margin-bottom: 0px;   }
+		.box ul{
+			margin: 0px;
+			padding:0px;
+		}
+		.box ul li{
+			margin: 0px;
+			padding:0px;
+			list-style: none;
+			font-size: 12px;
+		}
+		.box ul li img{ margin:0px 6px 0px 0px; }
+		.box a{
+			background: #1da5ef;
+			color: #fff;
+			padding:8px 15px;
+			text-decoration: none;
+			width:88%; 
+			display: block;
+			text-align: center;
+			border-radius: 4px; 
+		}
+		ul.list{
+			margin: 10px 0 0 0;
+			padding:0px; 
+		}
+		ul.list li{
+			float: left;
+			width:30px;
+			height:30px;
+			border: solid 1px #ccc;
+
+			margin: 0px 10px 0px 0px;
+			padding:0px; 
+			text-align: center;
+		}
+		.text{
+			font-size: 12px;
+			height: 44px;
+		}
+		.txt_m{
+			width: 100%;
+			float: left;
+			padding:0px 20px 20px 20px;
+		}
+		p.lds{
+			text-align:center;
+		}
+		ul.list li img{width: 20px;text-align:center;padding:5px;}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script>
+		$( document ).ready(function() {
+			$('.Outerbox').html('<p class="lds"><img src="https://media0.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"></p>');
+			$.ajax({
+				url : 'http://my-json-server.typicode.com/nitish173/rough-work/investment_plan',
+				dataType : 'json',
+				success:function(response){
+				$('.Outerbox').html('');
+				var link_array  = ["26", "22", "25"];
+				var images 		= {HDFC:"Axis.png", ICICI:"icici_new.svg", LT:'new_dsp_logo.png',SBI:'Axis.png',MIRAE:'icici_new.svg',BIRLA:'new_birla.svg',KOTAK:'Axis.png',LIC:'Axis.png'};
+				for(var i=0; i<response.length; i++){
+					var benifits = response[i].benefits.length; 
+					var funds = response[i].funds.length; 
+					$('.Outerbox').append('<div class="box"><h3>'+ response[i].plan_name + '<span>'+ response[i].avg_returns['5_years'] + '% <br/> 5y</span></h3><p class="text"><img style="width:30px;float: left;margin-right: 10px; " src="https://assets1.cleartax-cdn.com/clearsave/images/gold_medal.png"> '+ response[i].description + '</p><p><a  href="https://cleartax.in/save/plan/'+link_array[i]+'">Invest Now</a> </p><div class="bnfts"><h4>BENEFITS</h4><ul class="submenu_'+i+'">');
+					for(var j=0; j<benifits; j++){
+						$('.submenu_'+i).append('<li><img src="https://assets1.cleartax-cdn.com/img/newstyles/icons/tick.png">'+ response[i].benefits[j] +'</li>');
+					}
+					$('.submenu_'+i).append('</ul></div>');
+					$('.submenu_'+i).after('<div class="funs"><p>Funds in the Basket</p><ul class="list funds_list_'+i+'" >');
+					for(var k=0; k<funds; k++){
+						$('.funds_list_'+i).append('<li> <img src="'+response[i].funds[k]+'"> </li>');
+					}
+					$('.submenu_'+i).append('</ul></div></div>');
+
+				}
+				//console.log(response);
+			}
+		});
+		});
+	</script>
+	<div class="mn">
+		<div class="cntr">	
+			<div class="txt_m">
+				<h3> Most Popular Mutual Fund plan to grow your money</h3>
+				<p>Our experts have created packages of funds for different investment needs. Choose as per  your investment preferences.</p>
+			</div>
+			<div class="Outerbox">
+			</div>
+		</div>
+	</div>
+	</html>
+

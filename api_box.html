@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>:: DEMO ::</title>
+	<style type="text/css">
+		.mn{
+			width:1000px;
+			margin:0px auto;  
+			font-family:arial; 
+		}
+		.wd100{
+			width:100%;
+			float:left;
+			border:solid 1px #ccc;  
+			padding:20px;  
+		}
+
+		.wd100 ul{
+			margin:0px 0px;
+			padding:0px 0px;    
+		}
+
+		.wd100 ul li{
+			width:27%;
+			float:left;  
+			margin:0px 3% 0px 0px;
+			padding:15px;
+			list-style: none;  
+			border:solid 1px #ccc;
+			text-align: center;   
+		}
+		.wd100 ul li h3{font-size:16px; margin:0px;  }
+		.wd100 ul li p{font-size:13px; }
+		.wd100 ul li p img{width:40px; height:40px;   font-size:13px; }
+		ul.lsrt{
+			width:100%;
+			float: left; 
+		}
+		ul.lsrt li{
+			width:100%;
+		border: none;
+		margin:0px; 
+		padding:5px; 
+		}
+		ul.fg{
+		width:100%;
+			float: left; 	
+		}
+		ul.fg li{
+			width:40px;
+			height: 40px; 
+		border: solid 1px #ccc;
+		margin:0px; 
+		}
+		ul.fg li img{width:100%;}
+
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   <!--  <script type="text/javascript">
+    	$(document).ready(function(){
+    		$('.main_class').html('<p class="lds"><img src="https://media0.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"></p>');
+        $.ajax({
+        url      : 'http://my-json-server.typicode.com/nitish173/rough-work/investment_plan',
+        type     :'GET',
+        dataType :'json',
+        success  : function(response){
+        	$('.main_class').html('');
+        	$.each(response, function(i, data){
+             $('.main_class').append('<li class="data'+i+'"><h3> '+data.plan_name+'<span> '+data.avg_returns['5_years']+ 'year' + ' </span> </h3><p> '+data.description+' </p>');  
+                $('.data'+i).append('<ul class="lsrt benefits'+i+'">');
+              $.each(data.benefits, function(j, list){
+              	$('.benefits'+i).append('<li> '+list+' </li>');
+
+              });
+              $('.data'+i).append('<ul class="fg funds'+i+'">');
+               $.each(data.funds, function(j, item){
+              	$('.funds'+i).append('<li> <img src="'+item+'"/> </li>');
+
+              });
+               $('.data'+i).append('</ul>');
+               $('.data'+i).append('</ul>');
+               
+             $('').append('</li>');
+          
+
+        	});
+        }
+       
+        });
+    	});
+    </script> -->
+
+
+    <script>
+    $(document).ready(function(){
+    	$.ajax({
+    		 url      : 'http://my-json-server.typicode.com/nitish173/rough-work/investment_plan',
+    		 type     : 'GET',
+    		 dataType : 'json',
+    		 success  : function(response){
+    		 	var arry_links =['26','22', '25'];
+    		 	for (i = 0; i < response.length; i++) {
+    		 		var benefits = response[i].benefits.length;
+    		 		var funds    = response[i].funds.length;
+    		 		$('.main_class').append('<li class="data"> <h3>'+response[i].plan_name+' <span> '+response[i].avg_returns['5_years'] +' % y</span></h3> <p> '+response[i].description+' </p><p><a href="https://cleartax.in/save/plan/'+arry_links[i]+'">Invest Now</a> </p><ul class="lsrt benefits'+i+'">');
+    		 		for (var j = 0; j < benefits; j++) {
+    		 			//console.log(response);
+    		 			$('.benefits'+i).append('<li> '+ response[i].benefits[j]+' </li>');
+    		 		}
+    		 		$('.benefits'+i).append('</ul><ul class="fg funds'+i+'">');
+    		 		//$('.benefits'+i).after('<ul class="fg funds'+i+'">');
+    		 		for (k = 0; k < funds; k++) {
+    		 			console.log(response[i].funds[k]);
+    		 			$('.funds'+i).append('<li> <img src="'+response[i].funds[k]+'"/> </li>');
+    		 		}
+    		 		$('.benefits'+i).append('</ul></li>');
+    		 		
+    		 	}
+
+    		 }
+
+    	});
+
+    });	
+    </script>
+</head>
+<body>
+
+	<div class="mn">
+		<div class="wd100">
+			<ul class="main_class">
+				
+			</ul>
+		</div>
+		
+	</div>
+
+</body>
+</html>
